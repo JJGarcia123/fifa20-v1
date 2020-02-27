@@ -253,4 +253,26 @@ public class BDController {
 		}
 		return carta;
 	}
+	
+	public String dameCodLiga(int cod_equipo) {
+		// Creo el objeto tipo statement para poder hacer la consulta
+		String codLiga = "";
+		try {
+			String cadena = "Select cod_liga from equipos where cod_equipo=?;";
+			PreparedStatement consultapre = conexion.prepareStatement(cadena);
+			consultapre.setInt(1, cod_equipo);
+			System.out.println(cadena);
+			ResultSet rs = consultapre.executeQuery();			
+			while (rs.next()) {
+				codLiga = rs.getString("cod_liga");
+			}
+			consultapre.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error en dameCodLiga");
+			e.printStackTrace();
+		}
+		return codLiga;
+	}
 }

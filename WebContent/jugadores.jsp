@@ -110,10 +110,13 @@
 									Carta carta = controladorBD.dameCarta(jugadores.get(i).getCod_jugador());
 							%>
 									<tr>
-										<td width='60' rowspan="2">foto.Jug</td>
-										<td width='325' colspan="3" style="padding-left: 15px;"><%=jugadores.get(i).getNombre()%></td>
-		
-										<td rowspan="2" width='60' style="text-align: center;"><%=carta.getRat() %></td>
+										<td width='60' rowspan="2" style="text-align: center;"><img src = "images/jugadores/<%=jugadores.get(i).getCod_jugador()%>.png" style="width:60px;"/></td>
+										<td width='325' colspan="3" style="padding-left: 15px;"><%=jugadores.get(i).getNombre()%></td>										
+    									<td rowspan="2" width='60' style="text-align: center; padding:5px;">
+    										<div class = "cuadradito_amarillo">
+    											<%=carta.getRat() %>
+    										</div>
+    									</td>										
 										<td rowspan="2" width='60' style="text-align: center;"><%=carta.getPos() %></td>
 										<td rowspan="2" width='100' style="text-align: center;"><%=carta.getNombre() %></td>
 										<td rowspan="2" width='100' style="text-align: center;"><%=carta.getPrecio() %></td>
@@ -135,9 +138,9 @@
 		
 									</tr>
 									<tr>
-										<td width='45' style="text-align: right;">Fot.Equ</td>
-										<td width='50' style="text-align: center;">Fot.Band</td>
-										<td width='230'>Foto.Liga</td>
+										<td width='45' style="text-align: center;"><img src = "images/equipos/<%=jugadores.get(i).getCod_equipo()%>.png" style="width:30px;"/></td>
+										<td width='50' style="text-align: center;"><img src = "images/paises/<%=jugadores.get(i).getPais()%>.png" style="width:30px;"/></td>
+										<td width='230' style="text-align: left;"><img src = "images/ligas/<%=controladorBD.dameCodLiga(jugadores.get(i).getCod_equipo())%>.png" style="width:30px;"/></td>
 									</tr>
 							<%
 								}
